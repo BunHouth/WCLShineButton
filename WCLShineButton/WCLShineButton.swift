@@ -51,6 +51,26 @@ public class WCLShineButton: UIControl {
         }
     }
 
+    @IBInspectable public var bigShineColor: UIColor = UIColor(rgb: (4,152,85)) {
+        willSet {
+            params.bigShineColor = newValue
+        }
+    }
+
+    @IBInspectable public var smallShineColor: UIColor = UIColor(rgb: (41,204,126)) {
+        willSet {
+            params.smallShineColor = newValue
+        }
+    }
+
+    @IBInspectable public var allowRandomColor: Bool = true {
+        willSet {
+            params.allowRandomColor = newValue
+        }
+    }
+
+
+
     /// button的图片
     @IBInspectable public var image: NSString = ".heart" {
             willSet {
@@ -79,7 +99,6 @@ public class WCLShineButton: UIControl {
     }
 
     @IBInspectable public var getSelection: Bool {
-        print("Clicked: \(clickLayer.clicked)")
         return clickLayer.clicked
     }
 
@@ -90,6 +109,8 @@ public class WCLShineButton: UIControl {
             clickLayer.clicked = isSelected
         }
     }
+
+    private var shineParams = WCLShineParams()
 
     private var clickLayer = WCLShineClickLayer()
 
